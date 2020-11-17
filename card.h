@@ -2,15 +2,15 @@
 
 class Card
 {
+public:
+	Card(char type, int num);
+	char getType() const;
+	int getNumber() const;
+
 private:
 	char type;
 	int num;
-
-public:
-	Card(char type, int num);
-	char getType();
-	int getNumber();
 };
 
-// ÇÑ Ä«µå¿¡ ´Ù¾çÇÑ Á¾·ùÀÇ ±âÈ£°¡ µé¾î°¥ °æ¿ì,
-// ¸â¹öº¯¼ö¸¦ º¯°æÇØ¾ß ÇÒ ÇÊ¿ä°¡ ÀÖÀ½
+// í•œ ì¹´ë“œì— ë‹¤ì–‘í•œ ì¢…ë¥˜ì˜ ê¸°í˜¸ê°€ ë“¤ì–´ê°ˆ ê²½ìš°,
+// ë©¤ë²„ë³€ìˆ˜ë¥¼ ë³€ê²½í•´ì•¼ í•  í•„ìš”ê°€ ìˆìŒ

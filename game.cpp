@@ -28,7 +28,7 @@ Card initDeck[56] = {
 	Card('$', 5)
 };
 
-void card_dispense() {  // ÃÖÃÊ Ä«µå ºĞ¹è
+void card_dispense() {  // ìµœì´ˆ ì¹´ë“œ ë¶„ë°°
 	int shuffle[56] = { 0, }, chk[56] = { 0, };
 	int cnt = 0, r;
 
@@ -36,9 +36,9 @@ void card_dispense() {  // ÃÖÃÊ Ä«µå ºĞ¹è
 
 	while (cnt < 56)
 	{
-		r = rand() % 56; // 0 ~ 55 ³­¼ö »ı¼º
-		if (!chk[r]) { // ÀÌ¹Ì »ÌÈù ÀûÀÌ ¾ø´Â ¼ıÀÚ¸é
-			++chk[r], shuffle[cnt] = r; // Ã¼Å© ÈÄ shuffle ¹è¿­¿¡ Ãß°¡
+		r = rand() % 56; // 0 ~ 55 ë‚œìˆ˜ ìƒì„±
+		if (!chk[r]) { // ì´ë¯¸ ë½‘íŒ ì ì´ ì—†ëŠ” ìˆ«ìë©´
+			++chk[r], shuffle[cnt] = r; // ì²´í¬ í›„ shuffle ë°°ì—´ì— ì¶”ê°€
 			++cnt;
 		}
 	}
@@ -54,13 +54,13 @@ bool isSum5()
 {
 	Card c1 = p1.getOpenedTop(), c2 = p2.getOpenedTop();
 
-	if (c1.getType() == c2.getType()) {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ °°À¸¸é
-		if (c1.getNumber() + c2.getNumber() == 5)  // µÎ Ä«µåÀÇ ¼ıÀÚ ÇÕÀÌ 5¸é true
+	if (c1.getType() == c2.getType()) {  // ë‘ ì¹´ë“œì˜ íƒ€ì…ì´ ê°™ìœ¼ë©´
+		if (c1.getNumber() + c2.getNumber() == 5)  // ë‘ ì¹´ë“œì˜ ìˆ«ì í•©ì´ 5ë©´ true
 			return true;
 	}
 
-	else {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ ´Ù¸£¸é
-		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // µÑ Áß ÇÏ³ª¶óµµ ¼ıÀÚ°¡ 5¸é true
+	else {  // ë‘ ì¹´ë“œì˜ íƒ€ì…ì´ ë‹¤ë¥´ë©´
+		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ ìˆ«ìê°€ 5ë©´ true
 			return true;
 	}
 
@@ -79,10 +79,10 @@ int bellPressed(int player)
 
 int game() 
 {
-	int turn = 1; // ¾î¶² ÇÃ·¹ÀÌ¾îÀÇ ÅÏÀÎÁö ³ªÅ¸³¿
+	int turn = 1; // ì–´ë–¤ í”Œë ˆì´ì–´ì˜ í„´ì¸ì§€ ë‚˜íƒ€ëƒ„
 	
 	card_dispense();
 
-	// ¹Ì¿Ï¼º
-	return 0; // ½Â¸® ÇÃ·¹ÀÌ¾î¸¦ ¹İÈ¯
+	// ë¯¸ì™„ì„±
+	return 0; // ìŠ¹ë¦¬ í”Œë ˆì´ì–´ë¥¼ ë°˜í™˜
 }

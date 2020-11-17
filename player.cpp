@@ -1,14 +1,14 @@
 #include "player.h"
 
-Card Player::getDeckTop() {
+Card Player::getDeckTop() const {
 	return deck.top();
 }
 
-Card Player::getOpenedTop() {
+Card Player::getOpenedTop() const {
 	return opened.top();
 }
 
-int Player::getAmount() {
+int Player::getAmount() const {
 	return deck.size();
 }
 
@@ -28,11 +28,13 @@ void Player::popOpened() {
 	opened.pop();
 }
 
-void Player::open() {
-	if (getAmount() == 0) {
-		// lose
+int Player::open() {
+	if (getAmount() == 0) {  // if deck is empty
+		return -1; // lose
 	}
 
 	pushOpened(getDeckTop());
 	popDeck();
+	
+	return 0;  // open success
 }

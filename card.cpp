@@ -5,10 +5,10 @@ Card::Card(char type, int num) {
 	this->num = num;
 }
 
-char Card::getType() {
+char Card::getType() const {
 	return type;
 }
 
-int Card::getNumber() {
+int Card::getNumber() const {
 	return num;
 }

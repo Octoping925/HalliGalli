@@ -6,17 +6,17 @@ using namespace std;
 
 class Player
 {
-private:
-	stack<Card> deck;
-	stack<Card> opened;
-
 public:
-	Card getDeckTop();
-	Card getOpenedTop();
-	int getAmount();
+	Card getDeckTop() const;
+	Card getOpenedTop() const;
+	int getAmount() const;  // 현재 덱의 매수 반환
 	void pushDeck(Card c);
 	void pushOpened(Card c);
 	void popDeck();
 	void popOpened();
-	void open();
+	int open();  // 덱에서 카드를 뽑아 opened에 push. open할 수 없을 시 -1 반환
+
+private:
+	stack<Card> deck;
+	stack<Card> opened;
 };

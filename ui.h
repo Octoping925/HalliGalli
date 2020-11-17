@@ -5,5 +5,5 @@
 using namespace std;
 
 void gameUI();
-void cardPrint(int player, char type, int num);  // opened Ä«µåÀÇ ³»¿ëÀ» Ãâ·Â
+void cardPrint(int player, char type, int num);  // opened ì¹´ë“œì˜ ë‚´ìš©ì„ ì¶œë ¥
 void gotoxy(int x, int y);
