@@ -11,7 +11,9 @@ Card Player::getOpenedTop() const {
 int Player::getAmount() const {
 	return deck.size();
 }
-
+int Player::getOpenedAmount() const {
+	return opened.size();
+}
 void Player::pushDeck(Card c) {
 	deck.push(c);
 }
@@ -20,6 +22,12 @@ void Player::pushOpened(Card c) {
 	opened.push(c);
 }
 
+bool Player::isDeckEmpty() {
+	return deck.empty();
+}
+bool Player::isOpenedEmpty() {
+	return opened.empty();
+}
 void Player::popDeck() {
 	deck.pop();
 }
