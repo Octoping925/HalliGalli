@@ -46,3 +46,10 @@ int Player::open() {
 	
 	return 0;  // open success
 }
+
+void Player::setNumber(int num){
+	player_number = num;
+}
+int Player::getNumber(){
+	return player_number;
+}

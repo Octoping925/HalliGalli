@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
-#include <conio.h>
+#include "card.h"
+#include "player.h"
 
 using namespace std;
 
 void gameUI();
-void cardPrint(int player, char type, int num);  // opened 카드의 내용을 출력
+void openedPrint(Card card);  // opened 카드의 내용을 출력
+void deckPrint(Player player);
 void gotoxy(int x, int y);
