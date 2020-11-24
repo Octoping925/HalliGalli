@@ -1,119 +1,11 @@
 #include "ui.h"
 
-void gameUI() {
-     /*
-    cout << endl;
-    cout << "                                                "
-         << "┌──────────┐"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "    Player 1                                    " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "    카드 넘기기 : a                             " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "    종 치기 : d                                 " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "└──────────┘"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "┌──────────┐"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "└──────────┘"
-         << "                                                " << endl;
-         cout << endl << endl;
-    cout << "                                                "
-         << "┌──────────┐"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "└──────────┘"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "┌──────────┐"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "     Player 2                                   " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "                                                " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "     카드 넘기기 : j                            " << endl;
-    cout << "                                                "
-         << "│          │"
-         << "     종 치기 : l                                " << endl;
-    cout << "                                                "
-         << "└──────────┘"
-         << "                                                " << endl;
-     */
-     
+void gameUI() { 
+     deckPrint();   // Player1의 deck UI출력
+     openedPrint(); // Player1의 opened UI출력
+     cout << endl << endl;
+     openedPrint(); // Player2의 opened UI출력
+     deckPrint();   // Player2의 deck UI출력
 }
 
 void openedPrint(Card card) {
@@ -271,15 +163,15 @@ void openedPrint(Card card) {
 }
 
 void deckPrint(Player player) {
-     int count, twice;
+     int count, n;
      count = player.getAmount();
      if(count < 10){
-          twice = 1;
+          n = 1;
      } else {
-          twice = 2;
+          n = 2;
      }
 
-     switch (twice){     // 카드출력의 모양유지를 위해 덱의 size가 한자리와 두자리일 때로 나누어 구성했다.
+     switch (n){     // 카드출력의 모양유지를 위해 덱의 size가 한자리와 두자리일 때로 나누어 구성했다.
           case 1:
           cout << "                                                "
                << "┌───────────┐"
@@ -295,7 +187,7 @@ void deckPrint(Player player) {
                << "                                                " << endl;
           cout << "                                                "
                << "│    0" << count << "     │"
-               << "    [ Player " << player.getNumber() << "]      " << endl;
+               << "    [Player " << player.getNumber() << "]      " << endl;
           cout << "                                                "
                << "│           │"
                << "                                                " << endl;
@@ -325,7 +217,7 @@ void deckPrint(Player player) {
                << "                                                " << endl;
           cout << "                                                "
                << "│    " << count << "     │"
-               << "    [ Player " << player.getNumber() << "]      " << endl;
+               << "    [Player " << player.getNumber() << "]      " << endl;
           cout << "                                                "
                << "│           │"
                << "                                                " << endl;
@@ -340,11 +232,4 @@ void deckPrint(Player player) {
                << "                                                " << endl;
           break;
      }
-
-     
-
-}
-void gotoxy(int x, int y) {
-    printf("\033[%d;%df", y, x);
-    fflush(stdout);
 }

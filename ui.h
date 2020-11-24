@@ -8,4 +8,3 @@ using namespace std;
 void gameUI();
 void openedPrint(Card card);  // opened 카드의 내용을 출력
 void deckPrint(Player player);
-void gotoxy(int x, int y);
