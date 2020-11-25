@@ -49,7 +49,7 @@ void card_dispense() {  // 최초 카드 분배
 	for (int i = 0; i < 28; ++i)
 		p1->pushDeck(initDeck[shuffle[i]]);
 
-	for(int i = 28; i < 56; ++i)
+	for (int i = 28; i < 56; ++i)
 		p2->pushDeck(initDeck[shuffle[i]]);
 }
 
@@ -60,19 +60,13 @@ bool isSum5()
 		return false;
 	}
 	else if (p1->isOpenedEmpty() && !p2->isOpenedEmpty()) {
-		if (p1->getOpenedTop().getNumber() == 5)  
-			return true;
-		else
-			return false;
+		return p1->getOpenedTop().getNumber() == 5;
 	}
 	else if (!p1->isOpenedEmpty() && p2->isOpenedEmpty()) {
-		if (p2->getOpenedTop().getNumber() == 5)  
-			return true;
-		else
-			return false;
+		return p2->getOpenedTop().getNumber() == 5;
 	}
 	Card c1 = p1->getOpenedTop(), c2 = p2->getOpenedTop();
-	
+
 	if (c1.getType() == c2.getType()) {  // 두 카드의 타입이 같으면
 		if (c1.getNumber() + c2.getNumber() == 5)  // 두 카드의 숫자 합이 5면 true
 			return true;
@@ -90,22 +84,22 @@ void collectCard(Player*& a1, Player*& a2) {
 	//opened에 있는 카드와 자신의 덱의 카드를 모두 배열에 넣어 랜덤으로 자신의 덱이 넣음
 	int arrsize;
 	arrsize = a1->getAmount() + a1->getOpenedAmount() + a2->getOpenedAmount();
-    Card *toPush = new Card[arrsize];
-	int i = 0;
+	Card* toPush = new Card[arrsize];
+	int idx = 0;
 	while (!a1->isDeckEmpty()) {
-		toPush[i] = a1->getDeckTop();
+		toPush[idx] = a1->getDeckTop();
 		a1->popDeck();
-		i++;
+		idx++;
 	}
 	while (!a1->isOpenedEmpty()) {
-		toPush[i] = a1->getOpenedTop();
+		toPush[idx] = a1->getOpenedTop();
 		a1->popOpened();
-		i++;
+		idx++;
 	}
 	while (!a2->isOpenedEmpty()) {
-		toPush[i] = a2->getOpenedTop();
+		toPush[idx] = a2->getOpenedTop();
 		a2->popOpened();
-		i++;
+		idx++;
 	}
 	int shuffle[56] = { 0, };
 	int chk[56] = { 0, };
@@ -123,41 +117,29 @@ void collectCard(Player*& a1, Player*& a2) {
 	}
 	for (int i = 0; i < arrsize; ++i)
 		a1->pushDeck(toPush[shuffle[i]]);
+
+	delete[] toPush;
 }
 
-int game() 
-{	
+int game()
+{
 	card_dispense();
-    int playernum = 1;//플레이어 순서를 나타냄
-    char pushed;
-    for (;;) {
-        pushed = _getch();
-		if(pushed == 'a') {
-			if (playernum == 1) {
-                p1->pushOpened(p1->getDeckTop());
-                p1->popDeck();
-				playernum = 2;
-            }
-			else
-			{
-                continue;
-            }
+	int playernum = 1;//플레이어 순서를 나타냄
+	for (;;) {
+		char pushed = _getch();
+		if (pushed == 'a' && playernum == 1) {
+			p1->open();
+			playernum = 2;
 		}//플레이어 차례를 확인한 후 카드 제출
-		else if (pushed == 'j') {
-			if (playernum == 2) {
-                p2->pushOpened(p2->getDeckTop());
-                p2->popDeck();
-				playernum = 1;
-            }
-			else {
-                continue;
-			}
+		else if (pushed == 'j' && playernum == 2) {
+			p2->open();
+			playernum = 1;
 		}//플레이어 차례를 확인한 후 카드 제출
 		else if (pushed == 'd') {
 			if (isSum5()) {
 				collectCard(p1, p2);
 				playernum = 1;
-  		    }
+			}
 			else {
 				collectCard(p2, p1);
 				playernum = 2;
@@ -173,18 +155,11 @@ int game()
 				playernum = 1;
 			}
 		}//알맞게 종을 누르면 p2이 카드를 수거, 잘못 누르면 p1가 카드를 수거
-		else  {
-			continue;
-		}
-		if (p1->getAmount() == 0) {
+		if (p1->isDeckEmpty()) {
 			return 2;
 		}//p1의 덱이 비면 p2 승, 승리자 반환
-		else if (p2->getAmount() == 0) {
+		else if (p2->isDeckEmpty()) {
 			return 1;
 		}//p2의 덱이 비면 p1 승, 승리자 반환
-		else {
-			continue;
-		}
-    }
-     return 0;
+	}
 }

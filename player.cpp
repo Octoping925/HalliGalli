@@ -14,18 +14,18 @@ int Player::getAmount() const {
 int Player::getOpenedAmount() const {
 	return opened.size();
 }
-void Player::pushDeck(Card c) {
+void Player::pushDeck(const Card& c) {
 	deck.push(c);
 }
 
-void Player::pushOpened(Card c) {
+void Player::pushOpened(const Card& c) {
 	opened.push(c);
 }
 
-bool Player::isDeckEmpty() {
+bool Player::isDeckEmpty() const {
 	return deck.empty();
 }
-bool Player::isOpenedEmpty() {
+bool Player::isOpenedEmpty() const {
 	return opened.empty();
 }
 void Player::popDeck() {
@@ -47,9 +47,9 @@ int Player::open() {
 	return 0;  // open success
 }
 
-void Player::setNumber(int num){
+void Player::setNumber(int num) {
 	player_number = num;
 }
-int Player::getNumber(){
+int Player::getNumber() const {
 	return player_number;
 }
