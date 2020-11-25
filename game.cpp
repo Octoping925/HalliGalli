@@ -125,41 +125,57 @@ int game()
 {
 	card_dispense();
 	int playernum = 1;//플레이어 순서를 나타냄
+
+	Card tempCard1();
+	Card tempCard2();
+
+	waitUI(p1, p2);
 	for (;;) {
 		char pushed = _getch();
 		if (pushed == 'a' && playernum == 1) {
+			tempCard1 = p1->getDeckTop();
 			p1->open();
+			gameUI(p1, p2, tempCard1, c2);
 			playernum = 2;
 		}//플레이어 차례를 확인한 후 카드 제출
 		else if (pushed == 'j' && playernum == 2) {
+			tempCard2 = p2->getDeckTop();
 			p2->open();
+			gameUI(p1, p2, c1, tempCard2);
 			playernum = 1;
 		}//플레이어 차례를 확인한 후 카드 제출
 		else if (pushed == 'd') {
 			if (isSum5()) {
 				collectCard(p1, p2);
+				waitUI();
 				playernum = 1;
 			}
 			else {
 				collectCard(p2, p1);
+				waitUI();
 				playernum = 2;
 			}
 		}//알맞게 종을 누르면 p1이 카드를 수거, 잘못 누르면 p2가 카드를 수거
 		else if (pushed == 'l') {
 			if (isSum5()) {
 				collectCard(p2, p1);
+				waitUI();
 				playernum = 2;
 			}
 			else {
 				collectCard(p1, p2);
+				waitUI();
 				playernum = 1;
 			}
 		}//알맞게 종을 누르면 p2이 카드를 수거, 잘못 누르면 p1가 카드를 수거
 		if (p1->isDeckEmpty()) {
+			WinnerPrint(p1);
 			return 2;
 		}//p1의 덱이 비면 p2 승, 승리자 반환
 		else if (p2->isDeckEmpty()) {
+			WinnerPrint(p2);
 			return 1;
 		}//p2의 덱이 비면 p1 승, 승리자 반환
+		
 	}
 }

@@ -1,11 +1,19 @@
 #include "ui.h"
 
-void gameUI() { 
-     deckPrint();   // Player1의 deck UI출력
-     openedPrint(); // Player1의 opened UI출력
+void gameUI(Player p1, Player p2, Card c1, Card c2) { 
+     deckPrint(p1);   // Player1의 deck UI출력
+     openedPrint(c1); // Player1의 opened UI출력
      cout << endl << endl;
-     openedPrint(); // Player2의 opened UI출력
-     deckPrint();   // Player2의 deck UI출력
+     openedPrint(c2); // Player2의 opened UI출력
+     deckPrint(p2);   // Player2의 deck UI출력
+}
+
+void waitUI(Player p1, Player p2){
+     deckPrint(p1); // Player1의 deck UI출력
+     emptyPrint();  // 빈 카드 출력
+     cout << endl << endl;
+     emptyPrint();  // 빈 카드 출력
+     deckPrint(p2); // Player2의 deck UI출력
 }
 
 void openedPrint(Card card) {
@@ -232,4 +240,38 @@ void deckPrint(Player player) {
                << "                                                " << endl;
           break;
      }
+}
+
+void emptyPrint(){
+     cout << "                                                "
+               << "┌───────────┐"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "|           |"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "│           │"
+               << "                                                " << endl;
+          cout << "                                                "
+               << "└───────────┘"
+               << "                                                " << endl;
+}
+
+void WinnerPrint(Player player){
+     cout << "Winner : " << player.getNumber() << endl;
 }
