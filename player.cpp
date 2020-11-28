@@ -1,10 +1,14 @@
 #include "player.h"
 
+Player::Player(int num) { player_number = num; }
+
 Card Player::getDeckTop() const {
+	if (deck.empty()) return Card();
 	return deck.top();
 }
 
 Card Player::getOpenedTop() const {
+	if (opened.empty()) return Card();
 	return opened.top();
 }
 
@@ -37,7 +41,7 @@ void Player::popOpened() {
 }
 
 int Player::open() {
-	if (getAmount() == 0) {  // if deck is empty
+	if (deck.empty()) {  // if deck is empty
 		return -1; // lose
 	}
 

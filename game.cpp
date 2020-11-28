@@ -31,7 +31,7 @@ Card initDeck[56] = {
 	Card('$', 5)
 };
 
-void card_dispense() {  // ìµœì´ˆ ì¹´ë“œ ë¶„ë°°
+void card_dispense(Player& p1, Player& p2) {  // ÃÖÃÊ Ä«µå ºĞ¹è
 	int shuffle[56] = { 0, }, chk[56] = { 0, };
 	int cnt = 0, r;
 
@@ -39,66 +39,66 @@ void card_dispense() {  // ìµœì´ˆ ì¹´ë“œ ë¶„ë°°
 
 	while (cnt < 56)
 	{
-		r = rand() % 56; // 0 ~ 55 ë‚œìˆ˜ ìƒì„±
-		if (!chk[r]) { // ì´ë¯¸ ë½‘íŒ ì ì´ ì—†ëŠ” ìˆ«ìë©´
-			++chk[r], shuffle[cnt] = r; // ì²´í¬ í›„ shuffle ë°°ì—´ì— ì¶”ê°€
+		r = rand() % 56; // 0 ~ 55 ³­¼ö »ı¼º
+		if (!chk[r]) { // ÀÌ¹Ì »ÌÈù ÀûÀÌ ¾ø´Â ¼ıÀÚ¸é
+			++chk[r], shuffle[cnt] = r; // Ã¼Å© ÈÄ shuffle ¹è¿­¿¡ Ãß°¡
 			++cnt;
 		}
 	}
 
 	for (int i = 0; i < 28; ++i)
-		p1->pushDeck(initDeck[shuffle[i]]);
+		p1.pushDeck(initDeck[shuffle[i]]);
 
 	for (int i = 28; i < 56; ++i)
-		p2->pushDeck(initDeck[shuffle[i]]);
+		p2.pushDeck(initDeck[shuffle[i]]);
 }
 
-bool isSum5()
+bool isSum5(Player& p1, Player& p2)
 {
-	//openedì— ì¹´ë“œê°€ ì—†ê±°ë‚˜ í•œìª½ì—ë§Œ ìˆìœ¼ë©´ í•œ ì¹´ë“œê°€ 5ì¼ ê²½ìš°ë¥¼ ì œì™¸í•˜ê³  ëª¨ë‘ false ë°˜í™˜
-	if (p1->isOpenedEmpty() && p2->isOpenedEmpty()) {
+	//opened¿¡ Ä«µå°¡ ¾ø°Å³ª ÇÑÂÊ¿¡¸¸ ÀÖÀ¸¸é ÇÑ Ä«µå°¡ 5ÀÏ °æ¿ì¸¦ Á¦¿ÜÇÏ°í ¸ğµÎ false ¹İÈ¯
+	if (p1.isOpenedEmpty() && p2.isOpenedEmpty()) {
 		return false;
 	}
-	else if (p1->isOpenedEmpty() && !p2->isOpenedEmpty()) {
-		return p1->getOpenedTop().getNumber() == 5;
+	else if (p1.isOpenedEmpty() && !p2.isOpenedEmpty()) {
+		return p1.getOpenedTop().getNumber() == 5;
 	}
-	else if (!p1->isOpenedEmpty() && p2->isOpenedEmpty()) {
-		return p2->getOpenedTop().getNumber() == 5;
+	else if (!p1.isOpenedEmpty() && p2.isOpenedEmpty()) {
+		return p2.getOpenedTop().getNumber() == 5;
 	}
-	Card c1 = p1->getOpenedTop(), c2 = p2->getOpenedTop();
+	Card c1 = p1.getOpenedTop(), c2 = p2.getOpenedTop();
 
-	if (c1.getType() == c2.getType()) {  // ë‘ ì¹´ë“œì˜ íƒ€ì…ì´ ê°™ìœ¼ë©´
-		if (c1.getNumber() + c2.getNumber() == 5)  // ë‘ ì¹´ë“œì˜ ìˆ«ì í•©ì´ 5ë©´ true
+	if (c1.getType() == c2.getType()) {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ °°À¸¸é
+		if (c1.getNumber() + c2.getNumber() == 5)  // µÎ Ä«µåÀÇ ¼ıÀÚ ÇÕÀÌ 5¸é true
 			return true;
 	}
 
-	else {  // ë‘ ì¹´ë“œì˜ íƒ€ì…ì´ ë‹¤ë¥´ë©´
-		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ ìˆ«ìê°€ 5ë©´ true
+	else {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ ´Ù¸£¸é
+		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // µÑ Áß ÇÏ³ª¶óµµ ¼ıÀÚ°¡ 5¸é true
 			return true;
 	}
 
 	return false;
 }
 
-void collectCard(Player*& a1, Player*& a2) {
-	//openedì— ìˆëŠ” ì¹´ë“œì™€ ìì‹ ì˜ ë±ì˜ ì¹´ë“œë¥¼ ëª¨ë‘ ë°°ì—´ì— ë„£ì–´ ëœë¤ìœ¼ë¡œ ìì‹ ì˜ ë±ì´ ë„£ìŒ
+void collectCard(Player& p1, Player& p2) {
+	//opened¿¡ ÀÖ´Â Ä«µå¿Í ÀÚ½ÅÀÇ µ¦ÀÇ Ä«µå¸¦ ¸ğµÎ ¹è¿­¿¡ ³Ö¾î ·£´ıÀ¸·Î ÀÚ½ÅÀÇ µ¦ÀÌ ³ÖÀ½
 	int arrsize;
-	arrsize = a1->getAmount() + a1->getOpenedAmount() + a2->getOpenedAmount();
+	arrsize = p1.getAmount() + p1.getOpenedAmount() + p2.getOpenedAmount();
 	Card* toPush = new Card[arrsize];
 	int idx = 0;
-	while (!a1->isDeckEmpty()) {
-		toPush[idx] = a1->getDeckTop();
-		a1->popDeck();
+	while (!p1.isDeckEmpty()) {
+		toPush[idx] = p1.getDeckTop();
+		p1.popDeck();
 		idx++;
 	}
-	while (!a1->isOpenedEmpty()) {
-		toPush[idx] = a1->getOpenedTop();
-		a1->popOpened();
+	while (!p1.isOpenedEmpty()) {
+		toPush[idx] = p1.getOpenedTop();
+		p1.popOpened();
 		idx++;
 	}
-	while (!a2->isOpenedEmpty()) {
-		toPush[idx] = a2->getOpenedTop();
-		a2->popOpened();
+	while (!p2.isOpenedEmpty()) {
+		toPush[idx] = p2.getOpenedTop();
+		p2.popOpened();
 		idx++;
 	}
 	int shuffle[56] = { 0, };
@@ -110,72 +110,67 @@ void collectCard(Player*& a1, Player*& a2) {
 	while (cnt < arrsize)
 	{
 		r = rand() % arrsize;
-		if (!chk[r]) { // ì´ë¯¸ ë½‘íŒ ì ì´ ì—†ëŠ” ìˆ«ìë©´
-			++chk[r], shuffle[cnt] = r; // ì²´í¬ í›„ shuffle ë°°ì—´ì— ì¶”ê°€
+		if (!chk[r]) { // ÀÌ¹Ì »ÌÈù ÀûÀÌ ¾ø´Â ¼ıÀÚ¸é
+			++chk[r], shuffle[cnt] = r; // Ã¼Å© ÈÄ shuffle ¹è¿­¿¡ Ãß°¡
 			++cnt;
 		}
 	}
 	for (int i = 0; i < arrsize; ++i)
-		a1->pushDeck(toPush[shuffle[i]]);
+		p1.pushDeck(toPush[shuffle[i]]);
 
 	delete[] toPush;
 }
 
 int game()
 {
-	card_dispense();
-	int playernum = 1;//í”Œë ˆì´ì–´ ìˆœì„œë¥¼ ë‚˜íƒ€ëƒ„
+	Player p1 = Player(1), p2 = Player(2);
+	int playernum = 1; //ÇÃ·¹ÀÌ¾î ¼ø¼­¸¦ ³ªÅ¸³¿
 
-	Card tempCard1();
-	Card tempCard2();
-
+	card_dispense(p1, p2);
 	waitUI(p1, p2);
+
 	for (;;) {
 		char pushed = _getch();
 		if (pushed == 'a' && playernum == 1) {
-			tempCard1 = p1->getDeckTop();
-			p1->open();
-			gameUI(p1, p2, tempCard1, c2);
+			p1.open();
+			gameUI(p1, p2);
 			playernum = 2;
-		}//í”Œë ˆì´ì–´ ì°¨ë¡€ë¥¼ í™•ì¸í•œ í›„ ì¹´ë“œ ì œì¶œ
+		}//ÇÃ·¹ÀÌ¾î Â÷·Ê¸¦ È®ÀÎÇÑ ÈÄ Ä«µå Á¦Ãâ
 		else if (pushed == 'j' && playernum == 2) {
-			tempCard2 = p2->getDeckTop();
-			p2->open();
-			gameUI(p1, p2, c1, tempCard2);
+			p2.open();
+			gameUI(p1, p2);
 			playernum = 1;
-		}//í”Œë ˆì´ì–´ ì°¨ë¡€ë¥¼ í™•ì¸í•œ í›„ ì¹´ë“œ ì œì¶œ
+		}//ÇÃ·¹ÀÌ¾î Â÷·Ê¸¦ È®ÀÎÇÑ ÈÄ Ä«µå Á¦Ãâ
 		else if (pushed == 'd') {
-			if (isSum5()) {
+			if (isSum5(p1, p2)) {
 				collectCard(p1, p2);
-				waitUI();
 				playernum = 1;
 			}
 			else {
 				collectCard(p2, p1);
-				waitUI();
 				playernum = 2;
 			}
-		}//ì•Œë§ê²Œ ì¢…ì„ ëˆ„ë¥´ë©´ p1ì´ ì¹´ë“œë¥¼ ìˆ˜ê±°, ì˜ëª» ëˆ„ë¥´ë©´ p2ê°€ ì¹´ë“œë¥¼ ìˆ˜ê±°
+			waitUI(p1, p2);
+		}//¾Ë¸Â°Ô Á¾À» ´©¸£¸é p1ÀÌ Ä«µå¸¦ ¼ö°Å, Àß¸ø ´©¸£¸é p2°¡ Ä«µå¸¦ ¼ö°Å
 		else if (pushed == 'l') {
-			if (isSum5()) {
+			if (isSum5(p1, p2)) {
 				collectCard(p2, p1);
-				waitUI();
 				playernum = 2;
 			}
 			else {
 				collectCard(p1, p2);
-				waitUI();
 				playernum = 1;
 			}
-		}//ì•Œë§ê²Œ ì¢…ì„ ëˆ„ë¥´ë©´ p2ì´ ì¹´ë“œë¥¼ ìˆ˜ê±°, ì˜ëª» ëˆ„ë¥´ë©´ p1ê°€ ì¹´ë“œë¥¼ ìˆ˜ê±°
-		if (p1->isDeckEmpty()) {
-			WinnerPrint(p1);
+			waitUI(p1, p2);
+		}//¾Ë¸Â°Ô Á¾À» ´©¸£¸é p2ÀÌ Ä«µå¸¦ ¼ö°Å, Àß¸ø ´©¸£¸é p1°¡ Ä«µå¸¦ ¼ö°Å
+		if (p1.isDeckEmpty()) { //p1ÀÇ µ¦ÀÌ ºñ¸é p2 ½Â, ½Â¸®ÀÚ ¹İÈ¯
+			WinnerPrint(2);
 			return 2;
-		}//p1ì˜ ë±ì´ ë¹„ë©´ p2 ìŠ¹, ìŠ¹ë¦¬ì ë°˜í™˜
-		else if (p2->isDeckEmpty()) {
-			WinnerPrint(p2);
+		}
+		else if (p2.isDeckEmpty()) { //p2ÀÇ µ¦ÀÌ ºñ¸é p1 ½Â, ½Â¸®ÀÚ ¹İÈ¯
+			WinnerPrint(1);
 			return 1;
-		}//p2ì˜ ë±ì´ ë¹„ë©´ p1 ìŠ¹, ìŠ¹ë¦¬ì ë°˜í™˜
+		}
 		
 	}
 }

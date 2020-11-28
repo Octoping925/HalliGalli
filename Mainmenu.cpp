@@ -1,72 +1,8 @@
-#include <conio.h>
-#include <cstdlib>
 #include <iostream>
+#include "game.h"
+
 using namespace std;
 
-char Menu() {
-
-    char word;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-         << endl;
-    cout
-        << "                                                                   "
-           "                                                                   "
-           "                                                                  "
-        << endl;
-    cout << "   #        #         #           #       #      #        ######  "
-            "         #           #       #      #     "
-         << endl;
-    cout << "   #        #       #   #         #       #             #        "
-            "#       #   #         #       #            "
-         << endl;
-    cout << "   #        #     #       #       #       #      #      #         "
-            "     #       #       #       #      #     "
-         << endl;
-    cout << "   ##########    ###########      #       #      #      #      "
-            "###    ###########      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #      #        "
-            "#    #         #      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #      #        "
-            "#    #         #      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #        ####### "
-            "    #         #      #       #      #     "
-         << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-
-    cout << "                                           Press the button"
-         << endl;
-    cout << "" << endl;
-
-    cout << "                                              Start:  S" << endl;
-    cout << "                                              Exit :  Q" << endl;
-
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-         << endl;
-    word = _getch(); // 엔터치지 않아도 바로 입력 받을 수 있게 하기 위해 cin x
-    return word;
-}
 int main() {
     system("mode con cols=108 lines=40 | title Halli Galli");
     cout << "" << endl;
@@ -79,7 +15,7 @@ int main() {
         switch (Menu()) {
         case 'S':
         case 's':
-            break;
+            game();
 
         case 'Q':
         case 'q':

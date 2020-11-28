@@ -1,14 +1,17 @@
-#include "ui.h"
+﻿#include "ui.h"
+#include <string>
+#include <conio.h>
+#include <cstdlib>
 
-void gameUI(Player p1, Player p2, Card c1, Card c2) { 
+void gameUI(Player& p1, Player& p2) { 
      deckPrint(p1);   // Player1의 deck UI출력
-     openedPrint(c1); // Player1의 opened UI출력
+     openedPrint(p1.getOpenedTop()); // Player1의 opened UI출력
      cout << endl << endl;
-     openedPrint(c2); // Player2의 opened UI출력
+     openedPrint(p2.getOpenedTop()); // Player2의 opened UI출력
      deckPrint(p2);   // Player2의 deck UI출력
 }
 
-void waitUI(Player p1, Player p2){
+void waitUI(Player& p1, Player& p2){
      deckPrint(p1); // Player1의 deck UI출력
      emptyPrint();  // 빈 카드 출력
      cout << endl << endl;
@@ -23,255 +26,285 @@ void openedPrint(Card card) {
      num = card.getNumber();
      switch (num) {
           case 1:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│     " << shape << "     │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
+              cout << "                                               "
+                  << "┌───────────┐"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│     " << shape << "     │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "└───────────┘"
+                  << "                                                " << endl;
           break;
           case 2:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│       " << shape << "   │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│    " << shape << "      │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
+              cout << "                                               "
+                  << "┌───────────┐"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│     " << shape << "     │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│     " << shape << "     │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "└───────────┘"
+                  << "                                                " << endl;
           break;
           case 3:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│      " << shape << "    │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│   " << shape << "    " << shape << "  │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
+              cout << "                                               "
+                  << "┌───────────┐"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│     " << shape << "     │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│   " << shape << "    " << shape << "  │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "└───────────┘"
+                  << "                                                " << endl;
           break;
           case 4:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│      " << shape << "    │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│   " << shape << "    " << shape << "  │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│     " << shape << "     │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
-          break;
+              cout << "                                               "
+                  << "┌───────────┐"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│   " << shape << "    " << shape << "  │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│   " << shape << "    " << shape << "  │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "└───────────┘"
+                  << "                                                " << endl;
+              break;
           case 5:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│    " << shape << "    " << shape << " │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│      " << shape << "    │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│   " << shape << "    " << shape << "  │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
-          break;
+              cout << "                                               "
+                  << "┌───────────┐"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│   " << shape << "    " << shape << "  │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│     " << shape << "     │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│   " << shape << "    " << shape << "  │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "│           │"
+                  << "                                                " << endl;
+              cout << "                                               "
+                  << "└───────────┘"
+                  << "                                                " << endl;
+              break;
      }
 }
 
-void deckPrint(Player player) {
-     int count, n;
-     count = player.getAmount();
-     if(count < 10){
-          n = 1;
-     } else {
-          n = 2;
-     }
+void deckPrint(Player& player) {
+    char key[7] = { ' ', 'A', 'D', 'J', 'L' };
+    int playernum = player.getNumber(), n = player.getAmount();
+    string cnt = "";
+    if (n < 10) cnt += "0";
+    cnt += std::to_string(n);
 
-     switch (n){     // 카드출력의 모양유지를 위해 덱의 size가 한자리와 두자리일 때로 나누어 구성했다.
-          case 1:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│    0" << count << "     │"
-               << "    [Player " << player.getNumber() << "]      " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "    카드 오픈 : [A]                             "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "    종 치기 : [D]                               "
-               << "└───────────┘"
-               << "                                                " << endl;
-          break;
 
-          case 2:
-          cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│    " << count << "     │"
-               << "    [Player " << player.getNumber() << "]      " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "    카드 오픈 : [J]                             "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "    종 치기 : [L]                               "
-               << "└───────────┘"
-               << "                                                " << endl;
-          break;
-     }
+    cout << "                                               "
+        << "┌───────────┐"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│    " << cnt << "     │"
+        << "    [Player " << playernum << "]      " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "    카드 오픈 : [" << key[playernum * 2 - 1] << "]                            "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "    종 치기 : [" << key[playernum * 2] << "]                              "
+        << "└───────────┘"
+        << "                                                " << endl;
 }
 
 void emptyPrint(){
-     cout << "                                                "
-               << "┌───────────┐"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "|           |"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "│           │"
-               << "                                                " << endl;
-          cout << "                                                "
-               << "└───────────┘"
-               << "                                                " << endl;
+    cout << "                                               "
+        << "┌───────────┐"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+        << "│           │"
+        << "                                                " << endl;
+    cout << "                                               "
+         << "└───────────┘"
+         << "                                                " << endl;
 }
 
-void WinnerPrint(Player player){
-     cout << "Winner : " << player.getNumber() << endl;
+void WinnerPrint(const int num){
+     cout << "Winner : " << num << endl;
+}
+
+char Menu() {
+
+    char word;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        << endl;
+    cout
+        << "                                                                   "
+        "                                                                   "
+        "                                                                  "
+        << endl;
+    cout << "   #        #         #           #       #      #        ######  "
+        "         #           #       #      #     "
+        << endl;
+    cout << "   #        #       #   #         #       #             #        "
+        "#       #   #         #       #            "
+        << endl;
+    cout << "   #        #     #       #       #       #      #      #         "
+        "     #       #       #       #      #     "
+        << endl;
+    cout << "   ##########    ###########      #       #      #      #      "
+        "###    ###########      #       #      #     "
+        << endl;
+    cout << "   #        #    #         #      #       #      #      #        "
+        "#    #         #      #       #      #     "
+        << endl;
+    cout << "   #        #    #         #      #       #      #      #        "
+        "#    #         #      #       #      #     "
+        << endl;
+    cout << "   #        #    #         #      #       #      #        ####### "
+        "    #         #      #       #      #     "
+        << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << "" << endl;
+
+    cout << "                                           Press the button"
+        << endl;
+    cout << endl;
+
+    cout << "                                              Start:  S" << endl;
+    cout << "                                              Exit :  Q" << endl;
+
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        << endl;
+    word = _getch(); // 엔터치지 않아도 바로 입력 받을 수 있게 하기 위해 cin x
+    return word;
 }

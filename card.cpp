@@ -1,7 +1,7 @@
 #include "card.h"
 
 Card::Card() {
-	this->type = '@';
+	this->type = 'N';  // NULL
 	this->num = 0;
 }
 Card::Card(char type, int num) {

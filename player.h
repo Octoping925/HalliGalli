@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <stack>
 #include "card.h"
 
@@ -7,6 +7,7 @@ using namespace std;
 class Player
 {
 public:
+	Player(int num);
 	Card getDeckTop() const;
 	Card getOpenedTop() const;
 	int getAmount() const;  // 현재 덱의 매수 반환
