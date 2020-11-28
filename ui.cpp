@@ -1,7 +1,6 @@
 ﻿#include "ui.h"
 #include <string>
-#include <conio.h>
-#include <cstdlib>
+
 
 void gameUI(Player& p1, Player& p2) { 
      deckPrint(p1);   // Player1의 deck UI출력
@@ -244,9 +243,11 @@ void WinnerPrint(const int num){
      cout << "Winner : " << num << endl;
 }
 
-char Menu() {
+void Menu() {
 
-    char word;
+    cout << endl << endl;
+    cout << "                                          Let's play  Halli Galli "
+        << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         << endl;
@@ -305,6 +306,4 @@ char Menu() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         << endl;
-    word = _getch(); // 엔터치지 않아도 바로 입력 받을 수 있게 하기 위해 cin x
-    return word;
 }

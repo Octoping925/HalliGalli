@@ -10,4 +10,4 @@ void deckPrint(Player& player);
 void emptyPrint();
 void WinnerPrint(const int num);
 void waitUI(Player& p1, Player& p2);
-char Menu();
+void Menu();
