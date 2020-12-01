@@ -127,7 +127,16 @@ int game()
 	int playernum = 1; //플레이어 순서를 나타냄
 
 	card_dispense(p1, p2);
-	waitUI(p1, p2);
+	waitUI(p1, p2);	
+
+	while (1) {
+		char pushed = _getch();
+		if (pushed != 'a')
+			continue;
+		waitPrint(p1, p2);
+		playernum = 2;
+		break;
+	}
 
 	for (;;) {
 		char pushed = _getch();
@@ -171,6 +180,5 @@ int game()
 			WinnerPrint(1);
 			return 1;
 		}
-		
 	}
 }
