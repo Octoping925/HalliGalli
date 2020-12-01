@@ -1,8 +1,9 @@
 #include "game.h"
 #include <random>
 #include <time.h>
-#include <conio.h>
 #include <iostream>
+#include <termio.h>
+
 using namespace std;
 
 Card initDeck[56] = {
@@ -130,7 +131,7 @@ int game()
 	waitUI(p1, p2);	
 
 	while (1) {
-		char pushed = _getch();
+		char pushed = getch();
 		if (pushed != 'a')
 			continue;
 		waitPrint(p1, p2);
@@ -139,7 +140,7 @@ int game()
 	}
 
 	for (;;) {
-		char pushed = _getch();
+		char pushed = getch();
 		if (pushed == 'a' && playernum == 1) {
 			p1.open();
 			gameUI(p1, p2);
@@ -181,4 +182,26 @@ int game()
 			return 1;
 		}
 	}
+}
+
+int  getch() {
+	int ch;
+
+	struct termios buf;
+	struct termios save;
+
+	tcgetattr(0, &save);
+	buf = save;
+
+	buf.c_lflag &= ~(ICANON | ECHO);
+	buf.c_cc[VMIN] = 1;
+	buf.c_cc[VTIME] = 0;
+
+	tcsetattr(0, TCSAFLUSH, &buf);
+
+	ch = getchar();
+
+	tcsetattr(0, TCSAFLUSH, &save);
+
+	return ch;
 }

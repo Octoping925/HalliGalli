@@ -3,30 +3,13 @@
 
 
 void gameUI(Player& p1, Player& p2) {
-    if (p1.isOpenedEmpty() > 0) {
-        deckPrint(p1);   // Player1의 deck UI출력
-        emptyPrint();
-        cout << endl << "                                         ";
-        cout << "   [Opened Count : " << p1.getOpenedAmount() + p2.getOpenedAmount() << " ]" << endl << endl;
-        openedPrint(p2.getOpenedTop()); // Player2의 opened UI출력
-        deckPrint(p2);   // Player2의 deck UI출력
-    }
-    else if (p2.isOpenedEmpty() > 0) {
-        deckPrint(p1);   // Player1의 deck UI출력
-        openedPrint(p1.getOpenedTop()); // Player1의 opened UI출력
-        cout << endl << "                                         ";
-        cout << "   [Opened Count : " << p1.getOpenedAmount() + p2.getOpenedAmount() << " ]" << endl << endl;
-        emptyPrint();
-        deckPrint(p2);   // Player2의 deck UI출력
-    }
-    else {
+
         deckPrint(p1);   // Player1의 deck UI출력
         openedPrint(p1.getOpenedTop()); // Player1의 opened UI출력
         cout << endl << "                                         ";
         cout << "   [Opened Count : " << p1.getOpenedAmount() + p2.getOpenedAmount() << " ]" << endl << endl;;
         openedPrint(p2.getOpenedTop()); // Player2의 opened UI출력
         deckPrint(p2);   // Player2의 deck UI출력
-    }
 }
 
 void waitUI(Player& p1, Player& p2){
@@ -197,6 +180,9 @@ void openedPrint(Card card) {
                   << "└───────────┘"
                   << "                                                " << endl;
               break;
+
+          default:
+              emptyPrint();
      }
 }
 
