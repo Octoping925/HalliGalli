@@ -3,7 +3,7 @@
 Player::Player(int num) { player_number = num; }
 
 Card Player::getDeckTop() const {
-	if (deck.empty()) return Card();
+	if (deck.empty()) return Card();  // NULL 카드 반환
 	return deck.top();
 }
 
@@ -12,12 +12,14 @@ Card Player::getOpenedTop() const {
 	return opened.top();
 }
 
-int Player::getAmount() const {
+int Player::getDeckAmount() const {
 	return deck.size();
 }
+
 int Player::getOpenedAmount() const {
 	return opened.size();
 }
+
 void Player::pushDeck(const Card& c) {
 	deck.push(c);
 }
@@ -29,9 +31,11 @@ void Player::pushOpened(const Card& c) {
 bool Player::isDeckEmpty() const {
 	return deck.empty();
 }
+
 bool Player::isOpenedEmpty() const {
 	return opened.empty();
 }
+
 void Player::popDeck() {
 	deck.pop();
 }
@@ -51,9 +55,6 @@ int Player::open() {
 	return 0;  // open success
 }
 
-void Player::setNumber(int num) {
-	player_number = num;
-}
-int Player::getNumber() const {
+int Player::getPlayerNumber() const {
 	return player_number;
 }
