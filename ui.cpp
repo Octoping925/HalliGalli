@@ -13,26 +13,6 @@ void gameUI(Player& p1, Player& p2, int playernum) {
         deckPrint(p2);   // Player2의 deck UI출력
 }
 
-void waitUI(Player& p1, Player& p2, int playernum){
-     deckPrint(p1); // Player1의 deck UI출력
-     emptyPrint();  // 빈 카드 출력
-     cout << endl << "                               ";
-     cout << "   [ Opened Count : " << p1.getOpenedAmount() + p2.getOpenedAmount() << " ]";
-     cout << "   /   [ TURN : PLAYER " << playernum << " ]" << endl << endl;
-     emptyPrint();  // 빈 카드 출력
-     deckPrint(p2); // Player2의 deck UI출력
-}
-
-void waitPrint(Player& p1, Player& p2, int playernum) {
-        p1.open();
-        deckPrint(p1);   // Player1의 deck UI출력
-        openedPrint(p1.getOpenedTop()); // Player1의 opened UI출력
-        cout << endl << "                               ";
-        cout << "   [ Opened Count : " << p1.getOpenedAmount() + p2.getOpenedAmount() << " ]";
-        cout << "   /   [ TURN : PLAYER " << playernum << " ]" << endl << endl;
-        emptyPrint();
-        deckPrint(p2);   // Player2의 deck UI출력
-}
 void openedPrint(Card card) {
      char shape;
      int num;
