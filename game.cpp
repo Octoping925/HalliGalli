@@ -32,7 +32,7 @@ Card initDeck[56] = {
 	Card('$', 5)
 };
 
-void card_dispense(Player& p1, Player& p2) {  // ÃÖÃÊ Ä«µå ºĞ¹è
+void card_dispense(Player& p1, Player& p2) {  // ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½Ğ¹ï¿½
 	int shuffle[56] = { 0, }, chk[56] = { 0, };
 	int cnt = 0, r;
 
@@ -40,9 +40,9 @@ void card_dispense(Player& p1, Player& p2) {  // ÃÖÃÊ Ä«µå ºĞ¹è
 
 	while (cnt < 56)
 	{
-		r = rand() % 56; // 0 ~ 55 ³­¼ö »ı¼º
-		if (!chk[r]) { // ÀÌ¹Ì »ÌÈù ÀûÀÌ ¾ø´Â ¼ıÀÚ¸é
-			++chk[r], shuffle[cnt] = r; // Ã¼Å© ÈÄ shuffle ¹è¿­¿¡ Ãß°¡
+		r = rand() % 56; // 0 ~ 55 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		if (!chk[r]) { // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½
+			++chk[r], shuffle[cnt] = r; // Ã¼Å© ï¿½ï¿½ shuffle ï¿½è¿­ï¿½ï¿½ ï¿½ß°ï¿½
 			++cnt;
 		}
 	}
@@ -56,7 +56,7 @@ void card_dispense(Player& p1, Player& p2) {  // ÃÖÃÊ Ä«µå ºĞ¹è
 
 bool isSum5(Player& p1, Player& p2)
 {
-	//opened¿¡ Ä«µå°¡ ¾ø°Å³ª ÇÑÂÊ¿¡¸¸ ÀÖÀ¸¸é ÇÑ Ä«µå°¡ 5ÀÏ °æ¿ì¸¦ Á¦¿ÜÇÏ°í ¸ğµÎ false ¹İÈ¯
+	//openedï¿½ï¿½ Ä«ï¿½å°¡ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½å°¡ 5ï¿½ï¿½ ï¿½ï¿½ì¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ false ï¿½ï¿½È¯
 	if (p1.isOpenedEmpty() && p2.isOpenedEmpty()) {
 		return false;
 	}
@@ -68,13 +68,13 @@ bool isSum5(Player& p1, Player& p2)
 	}
 	Card c1 = p1.getOpenedTop(), c2 = p2.getOpenedTop();
 
-	if (c1.getType() == c2.getType()) {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ °°À¸¸é
-		if (c1.getNumber() + c2.getNumber() == 5)  // µÎ Ä«µåÀÇ ¼ıÀÚ ÇÕÀÌ 5¸é true
+	if (c1.getType() == c2.getType()) {  // ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (c1.getNumber() + c2.getNumber() == 5)  // ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ true
 			return true;
 	}
 
-	else {  // µÎ Ä«µåÀÇ Å¸ÀÔÀÌ ´Ù¸£¸é
-		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // µÑ Áß ÇÏ³ª¶óµµ ¼ıÀÚ°¡ 5¸é true
+	else {  // ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½
+		if (c1.getNumber() == 5 || c2.getNumber() == 5)  // ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ 5ï¿½ï¿½ true
 			return true;
 	}
 
@@ -82,7 +82,7 @@ bool isSum5(Player& p1, Player& p2)
 }
 
 void collectCard(Player& p1, Player& p2) {
-	//opened¿¡ ÀÖ´Â Ä«µå¿Í ÀÚ½ÅÀÇ µ¦ÀÇ Ä«µå¸¦ ¸ğµÎ ¹è¿­¿¡ ³Ö¾î ·£´ıÀ¸·Î ÀÚ½ÅÀÇ µ¦ÀÌ ³ÖÀ½
+	//openedï¿½ï¿½ ï¿½Ö´ï¿½ Ä«ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int arrsize;
 	arrsize = p1.getAmount() + p1.getOpenedAmount() + p2.getOpenedAmount();
 	Card* toPush = new Card[arrsize];
@@ -111,8 +111,8 @@ void collectCard(Player& p1, Player& p2) {
 	while (cnt < arrsize)
 	{
 		r = rand() % arrsize;
-		if (!chk[r]) { // ÀÌ¹Ì »ÌÈù ÀûÀÌ ¾ø´Â ¼ıÀÚ¸é
-			++chk[r], shuffle[cnt] = r; // Ã¼Å© ÈÄ shuffle ¹è¿­¿¡ Ãß°¡
+		if (!chk[r]) { // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½
+			++chk[r], shuffle[cnt] = r; // Ã¼Å© ï¿½ï¿½ shuffle ï¿½è¿­ï¿½ï¿½ ï¿½ß°ï¿½
 			++cnt;
 		}
 	}
@@ -125,16 +125,16 @@ void collectCard(Player& p1, Player& p2) {
 int game()
 {
 	Player p1 = Player(1), p2 = Player(2);
-	int playernum = 1; //ÇÃ·¹ÀÌ¾î ¼ø¼­¸¦ ³ªÅ¸³¿
-
+	int playernum = 1; //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
+	int turn;
 	card_dispense(p1, p2);
-	waitUI(p1, p2);	
+	waitUI(p1, p2, 1);	
 
 	while (1) {
 		char pushed = getch();
 		if (pushed != 'a')
 			continue;
-		waitPrint(p1, p2);
+		waitPrint(p1, p2, 2);
 		playernum = 2;
 		break;
 	}
@@ -143,41 +143,45 @@ int game()
 		char pushed = getch();
 		if (pushed == 'a' && playernum == 1) {
 			p1.open();
-			gameUI(p1, p2);
+			gameUI(p1, p2, 2);
 			playernum = 2;
-		}//ÇÃ·¹ÀÌ¾î Â÷·Ê¸¦ È®ÀÎÇÑ ÈÄ Ä«µå Á¦Ãâ
+		}//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ê¸ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else if (pushed == 'j' && playernum == 2) {
 			p2.open();
-			gameUI(p1, p2);
+			gameUI(p1, p2, 1);
 			playernum = 1;
-		}//ÇÃ·¹ÀÌ¾î Â÷·Ê¸¦ È®ÀÎÇÑ ÈÄ Ä«µå Á¦Ãâ
+		}//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ê¸ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		else if (pushed == 'd') {
 			if (isSum5(p1, p2)) {
 				collectCard(p1, p2);
 				playernum = 1;
+				turn = 2;
 			}
 			else {
 				collectCard(p2, p1);
 				playernum = 2;
+				turn = 1;
 			}
-			waitUI(p1, p2);
-		}//¾Ë¸Â°Ô Á¾À» ´©¸£¸é p1ÀÌ Ä«µå¸¦ ¼ö°Å, Àß¸ø ´©¸£¸é p2°¡ Ä«µå¸¦ ¼ö°Å
+			waitUI(p1, p2, playernum);
+		}//ï¿½Ë¸Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ p1ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½, ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ p2ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
 		else if (pushed == 'l') {
 			if (isSum5(p1, p2)) {
 				collectCard(p2, p1);
 				playernum = 2;
+				turn = 1;
 			}
 			else {
 				collectCard(p1, p2);
 				playernum = 1;
+				turn = 2;
 			}
-			waitUI(p1, p2);
-		}//¾Ë¸Â°Ô Á¾À» ´©¸£¸é p2ÀÌ Ä«µå¸¦ ¼ö°Å, Àß¸ø ´©¸£¸é p1°¡ Ä«µå¸¦ ¼ö°Å
-		if (p1.isDeckEmpty()) { //p1ÀÇ µ¦ÀÌ ºñ¸é p2 ½Â, ½Â¸®ÀÚ ¹İÈ¯
+			waitUI(p1, p2, playernum);
+		}//ï¿½Ë¸Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ p2ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½, ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ p1ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
+		if (p1.isDeckEmpty()) { //p1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ p2 ï¿½ï¿½, ï¿½Â¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			WinnerPrint(2);
 			return 2;
 		}
-		else if (p2.isDeckEmpty()) { //p2ÀÇ µ¦ÀÌ ºñ¸é p1 ½Â, ½Â¸®ÀÚ ¹İÈ¯
+		else if (p2.isDeckEmpty()) { //p2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ p1 ï¿½ï¿½, ï¿½Â¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			WinnerPrint(1);
 			return 1;
 		}
