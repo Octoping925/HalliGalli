@@ -1,4 +1,4 @@
-#include "game.h"
+﻿#include "game.h"
 #include <random>
 #include <time.h>
 #include <iostream>
@@ -126,7 +126,6 @@ int game()
 {
 	Player p1 = Player(1), p2 = Player(2);
 	int playernum = 1; //�÷��̾� ������ ��Ÿ��
-	int turn;
 	card_dispense(p1, p2);
 	waitUI(p1, p2, 1);	
 
@@ -155,12 +154,10 @@ int game()
 			if (isSum5(p1, p2)) {
 				collectCard(p1, p2);
 				playernum = 1;
-				turn = 2;
 			}
 			else {
 				collectCard(p2, p1);
 				playernum = 2;
-				turn = 1;
 			}
 			waitUI(p1, p2, playernum);
 		}//�˸°� ���� ������ p1�� ī�带 ����, �߸� ������ p2�� ī�带 ����
@@ -168,12 +165,10 @@ int game()
 			if (isSum5(p1, p2)) {
 				collectCard(p2, p1);
 				playernum = 2;
-				turn = 1;
 			}
 			else {
 				collectCard(p1, p2);
 				playernum = 1;
-				turn = 2;
 			}
 			waitUI(p1, p2, playernum);
 		}//�˸°� ���� ������ p2�� ī�带 ����, �߸� ������ p1�� ī�带 ����
