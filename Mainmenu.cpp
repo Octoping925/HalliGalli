@@ -1,10 +1,10 @@
 #include "game.h"
-
+#include <stdlib.h>
 int main() {
     system("clear");
-    
+
     Menu();
-    
+
     while (true) {
         switch (getch()) {
         case 's':
