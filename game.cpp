@@ -1,4 +1,4 @@
-﻿#include "game.h"
+#include "game.h"
 #include <iostream>
 #include <random>
 #include <termio.h>
@@ -101,8 +101,6 @@ void collectCard(Player &p1, Player &p2) {
 void game() {
     Player p1(1);
     Player p2(2);
-    Player *player1 = &p1;
-    Player *player2 = &p2;
     int turn = 1;
     card_dispense(p1, p2);
 
