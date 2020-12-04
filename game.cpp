@@ -59,22 +59,6 @@ void card_dispense(Player &p1, Player &p2) {
 }
 
 bool isSum5(Player &p1, Player &p2) {
-    // opened에 카드가 없거나 한쪽에만 있으면 한 카드가 5일 경우를 제외하고 모두
-    // false 반환
-    if (p1.isOpenedEmpty() && p2.isOpenedEmpty()) {
-        return false;
-    } else if (p1.isOpenedEmpty() && !p2.isOpenedEmpty()) {
-        if (p1.getOpenedTop().getNumber() == 5)
-            return true;
-        else
-            return false;
-    } else if (!p1.isOpenedEmpty() && p2.isOpenedEmpty()) {
-        if (p2.getOpenedTop().getNumber() == 5)
-            return true;
-        else
-            return false;
-    }
-
     Card c1 = p1.getOpenedTop(), c2 = p2.getOpenedTop();
 
     if (c1.getType() == c2.getType()) {
