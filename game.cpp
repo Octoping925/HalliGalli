@@ -24,12 +24,8 @@ Card initDeck[CARDCOUNT] = {
     Card('$', 3), Card('$', 4), Card('$', 4), Card('$', 5)};
 
 int *makeRandArr(int size) {
-    int *arr = new int[size]{
-        0,
-    };
-    int *chk = new int[size]{
-        0,
-    };
+    int *arr = new int[size]{ 0, };
+    int *chk = new int[size]{ 0, };
     int cnt = 0;
 
     srand((unsigned int)time(NULL));
@@ -65,13 +61,11 @@ bool isSum5(Player &p1, Player &p2) {
         return c1.getNumber() + c2.getNumber() == 5;
     }
 
-    else
-        return (c1.getNumber() == 5 || c2.getNumber() == 5);
+    else return (c1.getNumber() == 5 || c2.getNumber() == 5);
 }
 
 void collectCard(Player &p1, Player &p2) {
-    int arrsize =
-        p1.getDeckAmount() + p1.getOpenedAmount() + p2.getOpenedAmount();
+    int arrsize = p1.getDeckAmount() + p1.getOpenedAmount() + p2.getOpenedAmount();
     Card *toPush = new Card[arrsize];
     int idx = 0;
     while (!p1.isDeckEmpty()) {
@@ -127,7 +121,8 @@ void game() {
                 if (isSum5(p1, p2)) {
                     collectCard(p1, p2);
                     turn = 1;
-                } else {
+                }
+                else {
                     collectCard(p2, p1);
                     turn = 2;
                 }
@@ -139,7 +134,8 @@ void game() {
                 if (isSum5(p1, p2)) {
                     collectCard(p2, p1);
                     turn = 2;
-                } else {
+                }
+                else {
                     collectCard(p1, p2);
                     turn = 1;
                 }
@@ -149,11 +145,13 @@ void game() {
 
         if (p1.isDeckEmpty()) {
             WinnerPrint(2);
+            getch();
             break;
         }
 
         else if (p2.isDeckEmpty()) {
             WinnerPrint(1);
+            getch();
             break;
         }
     }

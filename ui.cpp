@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+
 void gameUI(Player &p1, Player &p2, int turn) {
     system("clear");
     deckPrint(p1);
@@ -20,148 +21,103 @@ void openedPrint(Card card) {
     switch (card.getNumber()) {
     case 1:
         cout << "                                               "
-             << "┌───────────┐"
-             << "                                                " << endl;
+             << "┌───────────┐"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "│     " << shape << "     │"
-             << "                                                " << endl;
+             << "│     " << shape << "     │"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │"  << endl;
         cout << "                                               "
-             << "└───────────┘"
-             << "                                                " << endl;
+             << "└───────────┘"  << endl;
         break;
     case 2:
         cout << "                                               "
-             << "┌───────────┐"
-             << "                                                " << endl;
+             << "┌───────────┐"  << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│     " << shape << "     │"
-             << "                                                " << endl;
+             << "│     " << shape << "     │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│     " << shape << "     │"
-             << "                                                " << endl;
+             << "│     " << shape << "     │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "└───────────┘"
-             << "                                                " << endl;
+             << "└───────────┘" << endl;
         break;
     case 3:
         cout << "                                               "
-             << "┌───────────┐"
-             << "                                                " << endl;
+             << "┌───────────┐" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│     " << shape << "     │"
-             << "                                                " << endl;
+             << "│     " << shape << "     │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│   " << shape << "    " << shape << "  │"
-             << "                                                " << endl;
+             << "│   " << shape << "   " << shape << "   │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "└───────────┘"
-             << "                                                " << endl;
+             << "└───────────┘" << endl;
         break;
     case 4:
         cout << "                                               "
-             << "┌───────────┐"
-             << "                                                " << endl;
+             << "┌───────────┐" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│   " << shape << "    " << shape << "  │"
-             << "                                                " << endl;
+             << "│   " << shape << "   " << shape << "   │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│   " << shape << "    " << shape << "  │"
-             << "                                                " << endl;
+             << "│   " << shape << "   " << shape << "   │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "└───────────┘"
-             << "                                                " << endl;
+             << "└───────────┘" << endl;
         break;
     case 5:
         cout << "                                               "
-             << "┌───────────┐"
-             << "                                                " << endl;
+             << "┌───────────┐" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│   " << shape << "    " << shape << "  │"
-             << "                                                " << endl;
+             << "│   " << shape << "   " << shape << "   │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│     " << shape << "     │"
-             << "                                                " << endl;
+             << "│     " << shape << "     │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "│   " << shape << "    " << shape << "  │"
-             << "                                                " << endl;
+             << "│   " << shape << "   " << shape << "   │" << endl;
         cout << "                                               "
-             << "│           │"
-             << "                                                " << endl;
+             << "│           │" << endl;
         cout << "                                               "
-             << "└───────────┘"
-             << "                                                " << endl;
+             << "└───────────┘" << endl;
         break;
 
     default:
@@ -170,7 +126,7 @@ void openedPrint(Card card) {
 }
 
 void deckPrint(Player &player) {
-    char key[7] = {' ', 'A', 'D', 'J', 'L'};
+    char key[5] = {' ', 'A', 'D', 'J', 'L'};
     int playernum = player.getPlayerNumber(), n = player.getDeckAmount();
     string cnt = "";
     if (n < 10)
@@ -178,233 +134,121 @@ void deckPrint(Player &player) {
     cnt += std::to_string(n);
 
     cout << "                                               "
-         << "┌───────────┐"
-         << "                                                " << endl;
+         << "┌───────────┐" << endl;
+    cout << "                                               "
+         << "│           │" << endl;
+    cout << "                                               "
+         << "│           │" << endl;
+    cout << "                                               "
+         << "│           │" << endl;
+    cout << "                                               "
+         << "│    " << cnt << "     │    [Player " << playernum << "]      " << endl;
+    cout << "                                               "
+         << "│           │" << endl;
     cout << "                                               "
          << "│           │"
-         << "                                                " << endl;
+         << "    카드 오픈 : [" << key[playernum * 2 - 1] << "]" << endl;
     cout << "                                               "
          << "│           │"
-         << "                                                " << endl;
+         << "    종 치기   : [" << key[playernum * 2] << "]" << endl;
     cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│    " << cnt << "     │"
-         << "    [Player " << playernum << "]      " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "    카드 오픈 : [" << key[playernum * 2 - 1]
-         << "]                            " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "    종 치기 : [" << key[playernum * 2]
-         << "]                              " << endl;
-    cout << "                                               "
-         << "└───────────┘"
-         << "                                                " << endl;
+         << "└───────────┘"<< endl;
 }
 
 void emptyPrint() {
     cout << "                                               "
-         << "┌───────────┐"
-         << "                                                " << endl;
+         << "┌───────────┐" << endl;
+    for (int i = 0; i < 7; ++i)
+        cout << "                                               "
+            << "│           │" << endl;
+
     cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "│           │"
-         << "                                                " << endl;
-    cout << "                                               "
-         << "└───────────┘"
-         << "                                                " << endl;
+         << "└───────────┘"  << endl;
 }
 
-void WinnerPrint(const int num) {
+void WinnerPrint(const int player) {
     system("clear");
-    for (int n = 0; n < 15; n++) {
+    for (int i = 0; i < 5; i++) {
         cout << endl;
     }
-    switch (num) {
+
+    cout << "────────────────────────────────────────────────────────────────────────────────────────────────────────────" << endl;
+    cout << endl;
+    cout << "                                             $$$$$$$           $$$$                     " << endl;
+    cout << "                                           $$ $$$$$$          $$$$$                     " << endl;
+    cout << "                                           $$$$$$$$$          $$$$$                     " << endl;
+    cout << "                                           $$$                 $$$$$                    " << endl;
+    cout << "                                   $$       $$$$$$$            $$$$$                    " << endl;
+    cout << "                                   $$     $$$$$                 $$$$                    " << endl;
+    cout << "                                    $$  $$$$$$$$$$               $$                     " << endl;
+    cout << "                                      $$$$$$$$$$$                 $$                    " << endl;
+    cout << "                                        $$$$$$$$$$                 $                    " << endl;
+    cout << "                                           $$$$$$$$               $$$                   " << endl;
+    cout << "                                           $$$$$$                                       " << endl;
+    cout << endl;
+    cout << "                                             Congratulations!!!    " << endl;
+    cout << "                                      Winner Winner Chicken Dinner " << endl;
+    cout << endl;
+
+    switch (player) {
     case 1:
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-             << endl
-             << endl;
-        cout
-            << "    #           #            #  ###  #  #####     #  #####     "
-               "   "
-               "####      #   ########           #"
-            << endl;
-        cout
-            << "     #         # #          #        # #     #    # #     #    "
-               "  "
-               "#    #     #  #        #         ##"
-            << endl;
-        cout
-            << "      #       #   #        #     #   ##       #   ##       #   "
-               " # "
-               "     #    # #                  # #"
-            << endl;
-        cout
-            << "       #     #     #      #      #   #        #   #        #   "
-               "#  "
-               "      #   ##                     #"
-            << endl;
-        cout
-            << "       #    #      #     #       #   #        #   #        #   "
-               "##########   #                      #"
-            << endl;
-        cout
-            << "        #  #        #   #        #   #        #   #        #   "
-               " # "
-               "          #                      #"
-            << endl;
-        cout
-            << "         # #         # #         #   #        #   #        #   "
-               "  "
-               "#          #                      #"
-            << endl;
-        cout
-            << "          #           #          #   #        #   #        #   "
-               "   "
-               "#######   #                      #"
-            << endl
-            << endl;
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-             << endl;
+        cout << "      #         # #          #    #   #  # # #     #  # # #       ######     #   #####             ##" << endl;
+        cout << "       #       #   #        #         #       #    #       #    #        #   #  #                 # #" << endl;
+        cout << "        #     #     #      #      #   #        #   #        #   #        #   # #                    #" << endl;
+        cout << "        #    #      #     #       #   #        #   #        #   ##########   #                      #" << endl;
+        cout << "         #  #        #   #        #   #        #   #        #   #            #                      #" << endl;
+        cout << "          # #         # #         #   #        #   #        #    #           #                      #" << endl;
+        cout << "           #           #          #   #        #   #        #     #######    #                      #" << endl;
         break;
+
     case 2:
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-             << endl
-             << endl;
-        cout
-            << "    #           #            #  ###  #  #####     #  #####     "
-               "   "
-               "####      #   ########       ######   "
-            << endl;
-        cout
-            << "     #         # #          #        # #     #    # #     #    "
-               "  "
-               "#    #     #  #        #     #      #  "
-            << endl;
-        cout
-            << "      #       #   #        #     #   ##       #   ##       #   "
-               " # "
-               "     #    # #              #        # "
-            << endl;
-        cout
-            << "       #     #     #      #      #   #        #   #        #   "
-               "#  "
-               "      #   ##               #      ##  "
-            << endl;
-        cout
-            << "       #    #      #     #       #   #        #   #        #   "
-               "##########   #                    ##     "
-            << endl;
-        cout
-            << "        #  #        #   #        #   #        #   #        #   "
-               " # "
-               "          #                  ##       "
-            << endl;
-        cout
-            << "         # #         # #         #   #        #   #        #   "
-               "  "
-               "#          #                ##         "
-            << endl;
-        cout
-            << "          #           #          #   #        #   #        #   "
-               "   "
-               "#######   #               ############"
-            << endl
-            << endl;
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-             << endl;
+        cout << "      #         # #          #    #   #  # # #     #  # # #       ######     #   #####       ########     " << endl;
+        cout << "       #       #   #        #         #       #    #       #    #        #   #  #           #        #    " << endl;
+        cout << "        #     #     #      #      #   #        #   #        #   #        #   # #                    #     " << endl;
+        cout << "        #    #      #     #       #   #        #   #        #   ##########   #                    #       " << endl;
+        cout << "         #  #        #   #        #   #        #   #        #   #            #                  #         " << endl;
+        cout << "          # #         # #         #   #        #   #        #    #           #                #           " << endl;
+        cout << "           #           #          #   #        #   #        #     #######    #              ###########   " << endl;
         break;
     }
 
-    for (int n = 0; n < 14; n++) {
+    cout << endl;
+    cout << "────────────────────────────────────────────────────────────────────────────────────────────────────────────" << endl;
+    cout << endl;
+    cout << "                                          Press Any Key to Restart" << endl;
+    for (int i = 0; i < 5; i++) {
         cout << endl;
     }
 }
 
 void Menu() {
-
     cout << endl << endl;
-    cout << "                                          Let's play  Halli Galli "
-         << endl
-         << endl;
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-         << endl
-         << endl
-         << endl;
+    cout << "                                           Let's play Halli Galli" << endl;
+    cout << endl;
+    cout << "────────────────────────────────────────────────────────────────────────────────────────────────────────────" << endl;
+    cout << endl << endl;
 
-    cout << "   #        #         #           #       #      #        ######  "
-            "         #           #       #      #     "
-         << endl;
-    cout << "   #        #       #   #         #       #             #        "
-            "#       #   #         #       #            "
-         << endl;
-    cout << "   #        #     #       #       #       #      #      #         "
-            "     #       #       #       #      #     "
-         << endl;
-    cout << "   ##########    ###########      #       #      #      #      "
-            "###    ###########      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #      #        "
-            "#    #         #      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #      #        "
-            "#    #         #      #       #      #     "
-         << endl;
-    cout << "   #        #    #         #      #       #      #        ####### "
-            "    #         #      #       #      #     "
-         << endl;
-    cout << endl << endl << endl << endl << endl << endl;
+    cout << "   #        #         #           #       #      #        ######           #           #       #      #     " << endl;
+    cout << "   #        #       #   #         #       #             #        #       #   #         #       #            " << endl;
+    cout << "   #        #     #       #       #       #      #      #              #       #       #       #      #     " << endl;
+    cout << "   ##########    ###########      #       #      #      #      ###    ###########      #       #      #     " << endl;
+    cout << "   #        #    #         #      #       #      #      #        #    #         #      #       #      #     " << endl;
+    cout << "   #        #    #         #      #       #      #      #        #    #         #      #       #      #     " << endl;
+    cout << "   #        #    #         #      #       #      #        #######     #         #      #       #      #     " << endl;
 
-    cout << "                                           Press the button"
-         << endl;
+    for (int i = 0; i < 8; ++i)
+        cout << endl;
+
+    cout << "                                              Press the button" << endl;
     cout << endl;
 
-    cout << "                                              Start:  S" << endl;
-    cout << "                                              Exit :  Q" << endl;
+    cout << "                                                 Start:  S" << endl;
+    cout << "                                                 Exit :  Q" << endl;
 
-    cout << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl
-         << endl;
+    for (int i = 0; i < 10; ++i)
+        cout << endl;
 
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-         << endl;
+    cout << "────────────────────────────────────────────────────────────────────────────────────────────────────────────" << endl;
+    cout << "                                      Operating normally at 108 x 40 size" << endl;
+    cout << endl;
 }
