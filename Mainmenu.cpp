@@ -1,15 +1,23 @@
+#include <iostream>
+#include <cstdlib>
 #include "game.h"
-#include <stdlib.h>
+
+using namespace std;
+
 int main() {
-    system("clear");
-
+    //system("mode con cols=108 lines=40 | title Halli Galli");
+    //system("color e9"); // e or f is best
+    
     Menu();
-
-    while (true) {
-        switch (getch()) {
+    
+    while (1) {
+        char word = getch(); // 엔터치지 않아도 바로 입력 받을 수 있게 하기 위해 cin x
+        switch (word) {
+        case 'S':
         case 's':
             game();
-            return 0;
+
+        case 'Q':
         case 'q':
             return 0;
         }
