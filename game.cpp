@@ -117,7 +117,7 @@ void game() {
             break;
 
         case 'd': // Player 1 종 치기
-            if (!p1.isOpenedEmpty() && !p2.isOpenedEmpty()) {
+            if (!p1.isOpenedEmpty() || !p2.isOpenedEmpty()) {
                 if (isSum5(p1, p2)) {
                     collectCard(p1, p2);
                     turn = 1;
@@ -130,7 +130,7 @@ void game() {
             break;
 
         case 'l': // Player 2 종 치기
-            if (!p1.isOpenedEmpty() && !p2.isOpenedEmpty()) {
+            if (!p1.isOpenedEmpty() || !p2.isOpenedEmpty()) {
                 if (isSum5(p1, p2)) {
                     collectCard(p2, p1);
                     turn = 2;
